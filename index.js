@@ -114,6 +114,14 @@ client.connect((err) => {
                 res.send(result);
             });
     });
+
+    // Delete service
+    app.delete("/deleteService/:id", (req, res) => {
+        const id = ObjectID(req.params.id);
+        serviceCollection
+            .findOneAndDelete({ _id: id })
+            .then((result) => console.log(result));
+    });
 });
 
 // root
