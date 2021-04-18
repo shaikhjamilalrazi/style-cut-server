@@ -53,6 +53,7 @@ client.connect((err) => {
                 res.send(result.insertedCount > 0);
             });
     });
+
     // get services
     app.get("/services", (req, res) => {
         serviceCollection.find({}).toArray((err, documents) => {
