@@ -123,6 +123,16 @@ client.connect((err) => {
             .findOneAndDelete({ _id: id })
             .then((result) => console.log(result));
     });
+
+    // update
+    app.patch("/updateStatus/:id", (req, res) => {
+        const id = ObjectID(req.params.id);
+        bookCollection
+            .updateOne({ _id: id }, { $set: { status: req.body.status } })
+            .then((result) => {
+                console.log(result);
+            });
+    });
 });
 
 // root
